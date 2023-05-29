@@ -1,0 +1,80 @@
+<mvc:View controllerName="fileuploader2.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"  xmlns:l="sap.ui.layout"  xmlns:upload="sap.m.upload" 	xmlns:u="sap.ui.unified">
+    <Page id="page" title="{i18n>title}">
+       
+        <content>
+        	<l:VerticalLayout>
+		<u:FileUploader
+			id="fileUploader"
+			name="myFileUpload"
+			uploadUrl="upload/"
+			tooltip="Upload your file to the local server"
+			uploadComplete="handleUploadComplete"/>
+		<Button
+			text="Upload File"
+			press="handleUploadPress"/>
+	</l:VerticalLayout>
+	  <Table width="100rem" mode="None" id="idSalesTable" inset="true" headerText="File Details" visible="true" 
+	  items="{ path: 'Data3>/'}">
+                            <columns >
+                                <Column width="10rem">
+                                    <Text text="File Name" id = "fileName" />
+                                </Column>
+
+                                <Column>
+                                    <Text text="File Type" id = "fileType" />
+                                </Column>
+
+                                <Column>
+                                    <Text text=" File Size" id = "fileSize" />
+                                </Column>
+                                   <Column>
+								  <Button   icon="sap-icon://clear-all" press="ondeliteall" />
+								   </Column>
+								    <Column>
+								  <Text text=" " />
+								   </Column>
+                            </columns>
+                        
+                                <ColumnListItem >
+                                    <cells>
+                                        <Text text="{Data3>Filename}"  />
+                                        <Text text="{Data3>Mimetype}" />
+                                        <Text text="{Data3>size}" />                                     
+                                       <Button text="x" press="onPressrow" />  
+									   <Button  icon="sap-icon://download" press="onFiledataDownload" />
+                                    </cells>
+                                </ColumnListItem>
+                           
+                        </Table>
+            <!-- <upload:UploadSet>  	
+			<upload:items>
+				<upload:UploadSetItem
+						
+						mediaType="{mediaType}"
+						url="{url}"
+                      
+						thumbnailUrl="{thumbnailUrl}"
+						markers="{path: 'markers', templateShareable: false}"
+						statuses="{path: 'statuses', templateShareable: false}"
+						uploadState="{uploadState}">
+					<upload:markers>
+						<ObjectMarker
+								type="{type}"
+								visibility="{visibility}"/>
+					</upload:markers>
+					<upload:statuses>
+						<ObjectStatus
+								title="{title}"
+								text="{text}"
+								state="{state}"
+								
+								active="{active}"/>
+					</upload:statuses>
+				</upload:UploadSetItem>
+			</upload:items></upload:UploadSet> -->
+           
+        </content>
+    </Page>
+</mvc:View>
